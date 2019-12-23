@@ -7,7 +7,7 @@ function extractSecondsFromTimestamp(timestamp) {
 }
 
 module.exports = (params) => {
-  return publish("page_view_time", {
+  return publish("page_view_derived", {
     ...params.defaultConfig
   }).query(ctx => `
   with initial as (

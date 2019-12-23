@@ -1,7 +1,6 @@
 const settings = {
   database: "tada-analytics",
   snowplowSchema: "atomic",
-  sessionTimeoutSeconds: 30 * 60,
   heartBeatSeconds: 10,
   minimumVisitLengthSeconds: 30,
   outputSchema: "snowplow_package",
@@ -10,8 +9,9 @@ const settings = {
 
 const page_view_events = require("./includes/page_view_events");
 const page_view_derived = require("./includes/page_view_derived");
-// const sessionizedEvents = require("./includes/sessionized_events");
-// const sessions = require("./includes/sessions");
+const page_views = require("./includes/page_views");
+const sessions = require("./includes/sessions");
+const users = require("./includes/users");
 
 module.exports = (params) => {
 
@@ -31,7 +31,8 @@ module.exports = (params) => {
   return {
     page_view_events: page_view_events(params),
     page_view_derived: page_view_derived(params),
-    // sessionizedEvents: sessionizedEvents(params),
-    // sessions: sessions(params),
+    page_views: page_views(params),
+    sessions: sessions(params),
+    users: users(params),
   }
 }

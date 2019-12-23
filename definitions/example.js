@@ -2,10 +2,12 @@ const snowplow = require("../");
 
 const {
   page_view_events,
-  page_view_derived
+  page_view_derived,
+  page_views,
+  sessions,
+  users
 } = snowplow({
   snowplowSchema: "atomic",
-  sessionTimeoutSeconds: 30 * 60,
   heartBeatSeconds: 10,
   minimumVisitLengthSeconds: 30,
   defaultConfig: {
@@ -16,4 +18,6 @@ const {
 });
 
 // Override the sessions table type to "table".
-// sessions.type("table");
+page_views.type("table");
+sessions.type("table");
+users.type("table");
