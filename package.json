@@ -1,4 +1,5 @@
 {
+    "name": "dataform-snowplow",
     "dependencies": {
         "@dataform/core": "1.4.5"
     }
